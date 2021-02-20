@@ -1,0 +1,47 @@
+<!-- Intro to raw React APIs -->
+<!-- http://localhost:3000/isolated/exercise/02.html -->
+
+<body>
+  <div id="root"></div>
+  <div id="extra-credit-1"></div>
+
+  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+
+  <script type="module">
+    const rootElement = document.getElementById('root')
+    const extraCreditElement = document.getElementById('extra-credit-1')
+
+    // You're going to re-implement this code using React!
+    // 💣 So go ahead and delete this implementation (or comment it out for now)
+    // These three lines are similar to React.createElement
+    // const element = document.createElement('div')
+    // element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
+    // element.className = 'container' // 💰 in React, this is also called the "className" prop
+    // This is similar to ReactDOM.render
+    // rootElement.append(element)
+
+    // 🐨 Please re-implement the regular document.createElement code above
+    // with these React API calls
+    // 💰 The example in the markdown file should be a good hint for you.
+
+    const element = React.createElement('div', {
+      className: 'container',
+      children: 'Hello Exercise Two',
+    })
+    ReactDOM.render(element, rootElement)
+
+    // Extra Credit 1
+    const hello = React.createElement('span', {
+      children: 'Hello'
+    })
+    const world = React.createElement('span', {
+      children: 'World'
+    })
+    const helloWorld = React.createElement('div', {
+      className: 'container',
+      children: [hello, world]
+    })
+    ReactDOM.render(helloWorld, extraCreditElement)
+  </script>
+</body>

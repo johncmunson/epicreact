@@ -1,0 +1,48 @@
+<!-- Using JSX -->
+<!-- http://localhost:3000/isolated/exercise/03.html -->
+
+<body>
+  <div id="root"></div>
+  <div id="extra-credit-1"></div>
+  <div id="extra-credit-2"></div>
+  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+
+  <script type="text/babel">
+    // 🐨 on the script tag above, change `type="module"`
+    // to `type="text/babel"` so babel will compile this code for the browser to run.
+
+    // 🐨 re-implement this using JSX!
+    // const element = React.createElement('div', {
+    //   className: 'container',
+    //   children: 'Hello World',
+    // })
+
+    // 💰 there are a few subtle differences between JSX and HTML. One such
+    // difference is how you apply a class to an element in JSX is by using
+    // `className` rather than `class`!
+    // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
+    // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
+    const element = (
+      <div className="container">Hello Exercise 3</div>
+    )
+    ReactDOM.render(element, document.getElementById('root'))
+
+    // Extra Credit 1
+    const className = 'container'
+    const children = 'Hello Extra Credit'
+    const extraCreditElement1 = (
+      <div className={className}>{children}</div>
+    )
+    ReactDOM.render(extraCreditElement1, document.getElementById('extra-credit-1'))
+
+    // Extra Credit 2
+    const props = { className, children }
+    const extraCreditElement2 = (
+      <div {...props}></div>
+    )
+    ReactDOM.render(extraCreditElement2, document.getElementById('extra-credit-2'))
+  </script>
+</body>
