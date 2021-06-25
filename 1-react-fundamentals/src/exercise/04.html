@@ -12,11 +12,16 @@
       return <div className="message">{children}</div>
     }
 
+    // 🐨 Same thing as above, but capitalized so that we can use JSX syntax... <Message>Hello</Message>
+    const Message = ({ children }) => {
+      return <div className="message">{children}</div>
+    }
+
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
 
     // Old
-    const element = (
+    const element1 = (
       <div className="container">
         <div className="message">Hello World</div>
         <div className="message">Goodbye World</div>
@@ -24,7 +29,7 @@
     )
 
     // New
-    const element = (
+    const element2 = (
       <div className="container">
         {message('Hello World')}
         {message('Goodbye World')}
@@ -32,15 +37,22 @@
     )
 
     // Extra Credit 1
-    const element = (
+    const element3 = (
       <div className="container">
         {React.createElement(message, { children: 'Hello World' })}
         {React.createElement(message, 'Goodbye World')}
-        {message('Goodbye World')}
+      </div>
+    )
+
+    // Extra Credit 2
+    const element4 = (
+      <div className="container">
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
       </div>
     )
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element4, document.getElementById('root'))
   </script>
 </body>
